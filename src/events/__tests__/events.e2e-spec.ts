@@ -1,8 +1,8 @@
 import { INestApplication } from '@nestjs/common';
-import { createTestingApp, getRequest } from './test-utils';
-import { UserResponseDto } from '../src/users/dto/user-response.dto';
+import { createTestingApp, getRequest } from '../../../test/test-utils';
+import { UserResponseDto } from '../../users/dto/user-response.dto';
 import { DataSource } from 'typeorm';
-import { Event } from '../src/events/entities/event.entity';
+import { Event } from '../entities/event.entity';
 
 describe('EventsController (e2e)', () => {
   let app: INestApplication;

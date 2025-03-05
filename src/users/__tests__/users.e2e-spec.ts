@@ -1,6 +1,6 @@
 import { INestApplication } from '@nestjs/common';
-import { createTestingApp, getRequest } from './test-utils';
-import { UserResponseDto } from '../src/users/dto/user-response.dto';
+import { createTestingApp, getRequest } from '../../../test/test-utils';
+import { UserResponseDto } from '../dto/user-response.dto';
 import { DataSource } from 'typeorm';
 
 describe('UsersController (e2e)', () => {
