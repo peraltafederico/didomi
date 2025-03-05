@@ -4,6 +4,7 @@ import {
   ManyToOne,
   OneToMany,
   CreateDateColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
 import { Consent } from './consent.entity';
@@ -18,6 +19,9 @@ export class Event {
 
   @CreateDateColumn()
   createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
 
   @OneToMany(() => Consent, (consent) => consent.event, { cascade: true })
   consents: Consent[];
