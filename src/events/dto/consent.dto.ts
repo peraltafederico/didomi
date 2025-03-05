@@ -1,14 +1,10 @@
-import { IsBoolean, IsIn, IsNotEmpty } from 'class-validator';
+import { IsEnum, IsBoolean } from 'class-validator';
+import { ConsentType } from '../enums/consent-type.enum';
 
 export class ConsentDto {
-  @IsNotEmpty()
-  @IsIn(['email_notifications', 'sms_notifications'], {
-    message:
-      'Consent ID must be either email_notifications or sms_notifications',
-  })
-  id: string;
+  @IsEnum(ConsentType)
+  id: ConsentType;
 
   @IsBoolean()
-  @IsNotEmpty()
   enabled: boolean;
 }

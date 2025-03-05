@@ -7,14 +7,18 @@ import {
   CreateDateColumn,
 } from 'typeorm';
 import { Event } from './event.entity';
+import { ConsentType } from '../enums/consent-type.enum';
 
 @Entity('consents')
 export class Consent {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
-  consentId: string;
+  @Column({
+    type: 'enum',
+    enum: ConsentType,
+  })
+  consentId: ConsentType;
 
   @Column()
   enabled: boolean;
