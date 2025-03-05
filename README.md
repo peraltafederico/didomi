@@ -29,7 +29,7 @@ The project includes end-to-end tests that use a separate test database:
 
 ```bash
 # Start the test database
-docker compose up -d --wait postgres_test postgres # NestJS needs both postgres and postgres_test to be running
+docker compose up -d --wait postgres_test
 
 # Run end-to-end tests
 pnpm test:e2e

@@ -1,16 +1,17 @@
 import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { DataSource } from 'typeorm';
-import { AppModule } from '../src/app.module';
-import { TestDatabaseModule } from './test-db.module';
 import * as request from 'supertest';
+import { TestDatabaseModule } from './test-db.module';
+import { UsersModule } from '../src/users/users.module';
+import { EventsModule } from '../src/events/events.module';
 
 export async function createTestingApp(): Promise<{
   app: INestApplication;
   dataSource: DataSource;
 }> {
   const moduleFixture: TestingModule = await Test.createTestingModule({
-    imports: [TestDatabaseModule, AppModule],
+    imports: [TestDatabaseModule, EventsModule, UsersModule],
   }).compile();
 
   const app = moduleFixture.createNestApplication();
