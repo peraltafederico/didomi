@@ -3,7 +3,7 @@ import { createTestingApp, getRequest } from './test-utils';
 import { UserResponseDto } from '../src/users/dto/user-response.dto';
 import { DataSource } from 'typeorm';
 import { Event } from '../src/events/entities/event.entity';
-import { User } from '../src/users/entities/user.entity';
+
 describe('EventsController (e2e)', () => {
   let app: INestApplication;
   let dataSource: DataSource;

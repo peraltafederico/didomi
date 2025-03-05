@@ -14,7 +14,10 @@ export class Event {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => User, (user) => user.events, { onDelete: 'CASCADE' })
+  @ManyToOne(() => User, (user) => user.events, {
+    onDelete: 'CASCADE',
+    nullable: false,
+  })
   user: User;
 
   @CreateDateColumn()

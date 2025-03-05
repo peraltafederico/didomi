@@ -29,6 +29,9 @@ export class Consent {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @ManyToOne(() => Event, (event) => event.consents, { onDelete: 'CASCADE' })
+  @ManyToOne(() => Event, (event) => event.consents, {
+    onDelete: 'CASCADE',
+    nullable: false,
+  })
   event: Event;
 }

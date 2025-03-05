@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from '../src/users/entities/user.entity';
 import { Event } from '../src/events/entities/event.entity';
 import { Consent } from '../src/events/entities/consent.entity';
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { Consent } from '../src/events/entities/consent.entity';
       entities: [User, Event, Consent],
       synchronize: true, // Always true for tests
       dropSchema: true, // Clear database before tests
+      namingStrategy: new SnakeNamingStrategy(),
     }),
   ],
 })

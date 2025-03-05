@@ -7,6 +7,7 @@ import { EventsModule } from './events/events.module';
 import { User } from './users/entities/user.entity';
 import { Event } from './events/entities/event.entity';
 import { Consent } from './events/entities/consent.entity';
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { Consent } from './events/entities/consent.entity';
       database: process.env.DB_NAME || 'didomi',
       entities: [User, Event, Consent],
       synchronize: process.env.NODE_ENV !== 'production',
+      namingStrategy: new SnakeNamingStrategy(),
     }),
     UsersModule,
     EventsModule,

@@ -24,16 +24,16 @@ export class User {
     query: (alias) => `
       SELECT COALESCE(json_agg(agg), '[]')
       FROM (
-        SELECT DISTINCT ON ("consent"."consentId")
-          "consent"."consentId" AS "id",
+        SELECT DISTINCT ON ("consent"."consent_id")
+          "consent"."consent_id" AS "id",
           "consent"."enabled" AS "enabled"
         FROM "consents" "consent"
         INNER JOIN "events" "event" 
-          ON "event"."id" = "consent"."eventId"
-        WHERE "event"."userId" = ${alias}.id
+          ON "event"."id" = "consent"."event_id"
+        WHERE "event"."user_id" = ${alias}.id
         ORDER BY 
-          "consent"."consentId" ASC,
-          "consent"."createdAt" DESC
+          "consent"."consent_id" ASC,
+          "consent"."created_at" DESC
       ) AS agg
     `,
   })
