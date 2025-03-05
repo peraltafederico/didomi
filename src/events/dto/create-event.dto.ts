@@ -4,7 +4,6 @@ import {
   IsObject,
   IsUUID,
   ValidateNested,
-  ArrayNotEmpty,
   IsArray,
 } from 'class-validator';
 import { ConsentDto } from './consent.dto';
@@ -23,7 +22,6 @@ export class CreateEventDto {
   user: UserReferenceDto;
 
   @IsArray()
-  @ArrayNotEmpty()
   @ValidateNested({ each: true })
   @Type(() => ConsentDto)
   @UniqueConsentIds()
